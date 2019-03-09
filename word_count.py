@@ -20,10 +20,10 @@ for file_name in file_names:
             for word in word_list:
                 number_appearances = contents.count(word)
                 
-                if re.sub('[^a-zA-Z0-9 \n]', '', word.lower()) in word_counts.keys():
-                    word_counts[re.sub('[^a-zA-Z0-9 \n]', '', word.lower())] += number_appearances
+                if re.sub("[^a-zA-Z0-9']", '', word.lower()) in word_counts.keys():
+                    word_counts[re.sub("[^a-zA-Z0-9']", '', word.lower())] += number_appearances
                 else:
-                    word_counts[re.sub('[^a-zA-Z0-9 \n]', '', word.lower())] = number_appearances
+                    word_counts[re.sub("[^a-zA-Z0-9']", '', word.lower())] = number_appearances
     except IOError:
         print('Error opening file')
         continue
