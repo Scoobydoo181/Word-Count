@@ -1,7 +1,5 @@
 """Show a graph of the results"""
 from matplotlib import pyplot as plt
-
-from collections import OrderedDict
 import json
 
 file = open("cache.json")
