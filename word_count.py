@@ -3,6 +3,7 @@ import numpy
 from collections import OrderedDict
 import time
 import re
+import json
 start_time = time.time()
 file_names = ['Books/a_modest_proposal.txt','Books/a_tale_of_two_cities.txt',
             'Books/dracula.txt','Books/frankenstein.txt','Books/heart_of_darkness.txt',
@@ -27,11 +28,11 @@ for file_name in file_names:
         print('Error opening file')
         continue
 	
-sorted_dict = sorted(((key, value) for (key,value) in word_counts.items()),reverse=True)
+sorted_dict = sorted(((value, key) for (key,value) in word_counts.items()),reverse=True)
 
 try:
-    with open("results.txt",'w',encoding='UTF-8') as file:
-        file.write(str(sorted_dict))
+    with open("cache.json",'w',encoding='UTF-8') as file:
+        json.dump(sorted_dict,file)
 except IOError:
     pass
 end_time = time.time()
