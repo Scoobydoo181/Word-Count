@@ -1,6 +1,5 @@
 """Counts and ranks the most common words in literary classics"""
 
-import time
 import re
 import json
 
@@ -40,20 +39,15 @@ def count_words(file_names):
                 word_counts[formatted_word] = number_appearances
     return word_counts
 
-start_time = time.time()
+def get_data():
 
-file_names = ['Books/a_modest_proposal.txt','Books/a_tale_of_two_cities.txt',
+    file_names = ['Books/a_modest_proposal.txt','Books/a_tale_of_two_cities.txt',
             'Books/dracula.txt','Books/frankenstein.txt','Books/heart_of_darkness.txt',
             'Books/little_women.txt','Books/moby_dick.txt','Books/oliver_twist.txt',
             'Books/pride_and_prejudice.txt','Books/the_scarlet_letter.txt','Books/ulysses.txt']
  
-word_counts = count_words(file_names)
+    word_counts = count_words(file_names)
 
-sorted_results = reorder_and_sort(word_counts)
+    sorted_results = reorder_and_sort(word_counts)
 
-update_json(sorted_results)
-
-end_time = time.time()
-
-elapsed_time = end_time-start_time
-print("%s seconds" % str(elapsed_time))
+    update_json(sorted_results)
